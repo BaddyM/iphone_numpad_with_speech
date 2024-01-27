@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iphone Password</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="button-container">
+            <div></div>
+            <div class="nums">
+                
+            </div>
+            <div></div>
+        </div>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(()=>{
+
+            //Create an array for the numbers
+            var button_nums = [
+                [1,2,3],
+                [4,5,6],
+                [7,8,9],
+                ['*',0,'#']
+            ];
+
+            //Loop through the array and append HTML
+            $.each(button_nums, function(k,v){
+                $.each(v, function(s,m){
+                    $('.nums').append('<button id="btn'+m+'" value="'+m+'">'+m+'</button>')
+                })
+                $('.nums').append('<br>')
+            });
+
+            /*
+            var i = new Audio('./sounds/i.mp3');
+            var love = new Audio('./sounds/love.mp3');
+            var you = new Audio('./sounds/you-krina.mp3');
+            */
+
+            //create objects for the Audio class
+            const one = new Audio('./key_sounds/one.mp3');
+            const two = new Audio('./key_sounds/two.mp3');
+            const three = new Audio('./key_sounds/three.mp3');
+            const four = new Audio('./key_sounds/four.mp3');
+            const five = new Audio('./key_sounds/five.mp3');
+            const six = new Audio('./key_sounds/six.mp3');
+            const seven = new Audio('./key_sounds/seven.mp3');
+            const eight = new Audio('./key_sounds/eight.mp3');
+            const nine = new Audio('./key_sounds/nine.mp3');
+            const zero = new Audio('./key_sounds/zero.mp3');
+            const star = new Audio('./key_sounds/star.mp3');
+            const hash = new Audio('./key_sounds/hash.mp3');
+
+            //Play sound function
+            function play_sound(sound){
+                sound.play();
+                setTimeout(function(){
+                    sound.pause();
+                    sound.currentTime=0;
+                },800);
+            }
+
+            //Clicking the button
+            $('button').on('click',function(){
+                var num = $(this).val();
+
+                if(num == 1){
+                    play_sound(one);
+                }else if(num == 2){
+                    play_sound(two);
+                }else if(num == 3){
+                    play_sound(three);
+                }else if(num == 3){
+                    play_sound(three);
+                }else if(num == 4){
+                    play_sound(four);
+                }else if(num == 5){
+                    play_sound(five);
+                }else if(num == 6){
+                    play_sound(six);
+                }else if(num == 7){
+                    play_sound(seven);
+                }else if(num == 8){
+                    play_sound(eight);
+                }else if(num == 9){
+                    play_sound(nine);
+                }else if(num == 0){
+                    play_sound(zero);
+                }else if(num == '*'){
+                    play_sound(star);
+                }else if(num == '#'){
+                    play_sound(hash);
+                }
+                
+            })
+
+        })
+    </script>
+</body>
+
+</html>
